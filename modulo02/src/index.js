@@ -12,8 +12,6 @@ export default class App extends Component {
   };
 
   async componentDidMount() {
-    // await AsyncStorage.clear();
-
     const username = await AsyncStorage.getItem('@Githuber:username');
 
     this.appLoaded(username);
@@ -34,4 +32,3 @@ export default class App extends Component {
     return <Routes />;
   }
 }
-

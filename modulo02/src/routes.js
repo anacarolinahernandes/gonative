@@ -1,5 +1,10 @@
+import React from 'react';
 import { StackNavigator, TabNavigator } from 'react-navigation';
+import { colors, metrics } from 'styles';
 
+import HeaderRight from 'components/HeaderRight';
+
+// Pages
 import Welcome from 'pages/welcome';
 import Repositories from 'pages/repositories';
 import Organizations from 'pages/organizations';
@@ -12,11 +17,28 @@ const createNavigator = (isLogged = false) =>
         screen: TabNavigator({
           Repositories: { screen: Repositories },
           Organizations: { screen: Organizations },
+        }, {
+          tabBarPosition: 'bottom',
+          tabBarOptions: {
+            showIcon: true,
+            showLabel: false,
+            activeTintColor: colors.white, // cor do ícone quando a aba estiver ativa
+            inactiveTintColor: colors.whiteTransparent,
+            style: {
+              backgroundColor: colors.secundary,
+            },
+          },
         }),
       },
     },
     {
       initialRouteName: isLogged ? 'User' : 'Welcome',
+      navigationOptions: ({ navigation }) => ({
+        headerStyle: {
+          paddingHorizontal: metrics.basePadding,
+        },
+        headerRight: <HeaderRight navigation={navigation} />,
+      }),
     },
   );
 
