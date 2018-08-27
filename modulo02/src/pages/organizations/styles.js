@@ -10,6 +10,10 @@ const styles = StyleSheet.create({
     marginTop: metrics.basePadding,
   },
 
+  columnContainer: {
+    marginHorizontal: metrics.basePadding,
+    justifyContent: 'space-between',
+  },
 });
 
 export default styles;
