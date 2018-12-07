@@ -4,25 +4,24 @@
     "browser": true,
     "jest": true
   },
-  "plugins": [
-    "react-native",
-    "jsx-a11y",
-    "import"
-  ],
-  "extends": [
-    "airbnb",
-    "plugin:react-native/all"
-  ],
+  "plugins": ["react-native", "jsx-a11y", "import"],
+  "extends": ["airbnb", "plugin:react-native/all"],
   "rules": {
+    "max-len": ["error", { "code": 120 }],
+    "react/destructuring-assignment": [
+      true,
+      "always",
+      {
+        "ignoreClassFields": true
+      }
+    ],
     "react/jsx-filename-extension": [
       "error",
       {
-        "extensions": [
-          ".js",
-          ".jsx"
-        ]
+        "extensions": [".js", ".jsx"]
       }
     ],
+    "react/jsx-one-expression-per-line": [true, { "allow": "single-child" }],
     "global-require": "off",
     "no-console": "off",
     "import/prefer-default-export": "off",
